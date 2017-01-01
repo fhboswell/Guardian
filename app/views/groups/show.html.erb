@@ -1,21 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @group.title %>
-</p>
+<div class="wrapper_with_padding">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @group.description %>
-</p>
-<div id="todo_items_wrapper">
-  <%= render @group.individuals %>
-    <div id="form">
-      <%= render "individuals/form" %>
-    </div>
+	<p>
+	  <strong>Title:</strong>
+	  <%= @group.title %>
+	  <strong>Description:</strong>
+	  <%= @group.description %>
+	</p>
+
+	
+
+	<div id="todo_items_wrapper">
+	  <table id="customers">
+
+	  <tr>
+    	<th>Name</th>
+    	<th>Status</th>
+    	<th>Delete Button</th>
+    	<th>Change Status Button</th>
+  	</tr>
+	  	<%= render @group.individuals %> 
+	  </table>
+	</div>
+
+
+	
+ 
+
+	<div id="form">
+		<%= render "individuals/form" %>
+	</div>
+
+
+	<%= link_to 'Edit', edit_group_path(@group) %> |
+	<%= link_to 'Back', groups_path %>
 </div>
-
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>

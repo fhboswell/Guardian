@@ -1,3 +1,9 @@
-<p><%= individual.name %> 
-<%= link_to "Delete", group_individual_path(@group, individual.id), method: :delete, data: { confirm: " Are you sure?"} %>
-</p>
+
+<tr>
+	<td><%= individual.name %></td>
+	
+	<td><%= link_to "Delete", group_individual_path(@group, individual.id), method: :delete, data: { confirm: " Are you sure?"} %></td>
+
+
+
+</tr>

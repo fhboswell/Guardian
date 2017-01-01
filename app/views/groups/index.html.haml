@@ -1,0 +1,13 @@
+.wrapper_with_padding
+  #docs.clearfix
+    - unless @groups.blank?
+      - @groups.each do|doc|
+        %a{ href: (url_for [doc])}
+          .doc
+            %p.title= doc.title
+            %p.date= time_ago_in_words(doc.created_at)
+            %p.content= truncate(doc.description, length:50)
+    - else
+      %h2 Create Group!
+      %p Start with Guardian for your location!
+      %button= link_to "Create Group", new_group_path
