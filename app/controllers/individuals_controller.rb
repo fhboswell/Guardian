@@ -1,15 +1,19 @@
 class IndividualsController < ApplicationController
 
 	before_action :set_group
+	before_action :set_individual, except: [:create]
 
 	def create
 		
 		@individual = @group.individuals.create(individual_params)
+
 		redirect_to @group
 	end
 
+
+
 	def destroy
-		@individual = @group.individuals.find(params[:id])
+		
 		if @individual.destroy
 			flash[:success] = "Individual was deleted"
 		else
@@ -19,13 +23,30 @@ class IndividualsController < ApplicationController
 	redirect_to @group
 	end
 
+
+	def change
+		if @individual.check == "No"
+			@individual.update_attribute(:check, "Yes")
+		else
+			@individual.update_attribute(:check, "No")
+		end
+		redirect_to @group
+
+
+	end
+
+
 	private
 
 	def set_group
 		@group = Group.find(params[:group_id])
 	end
 
+	def set_individual
+		@individual = @group.individuals.find(params[:id])
+	end
+
 	def individual_params
-		params[:individual].permit(:name, :check)
+		params[:individual].permit(:name).merge(check: "No")
 	end
 end

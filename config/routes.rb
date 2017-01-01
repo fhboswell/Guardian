@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
+
+
+
   devise_for :users
   resources :groups do
-  	resources :individuals
+  	resources :individuals do
+      member do
+        patch :change
+      end
+    end
   end
 
 
