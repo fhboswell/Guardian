@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+ before_action :set_group, only: [:show, :edit, :update, :destroy]
+ before_action :authenticate_user!
+ before_filter :user_is_current_user, except: [:index, :create]
 
   # GET /groups
   # GET /groups.json
@@ -62,13 +64,24 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
+
+
+  def user_is_current_user
+     @group = Group.find(params[:id])
+
+    unless current_user.id == @group.user_id
+      flash[:notice] = "You may only view your own products."
+      redirect_to groups_url
     end
 
+  end
+    # Use callbacks to share common setup or constraints between actions.
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
     # Never trust parameters from the scary internet, only allow the white list through.
-    def group_params
-      params.require(:group).permit(:title, :description)
-    end
+  def group_params
+    params.require(:group).permit(:title, :description)
+  end
 end
