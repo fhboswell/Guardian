@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
 
-  post 'auth_user' => 'authentication#authenticate_user'
+
   get 'home' => 'home#index'
+
+  post 'auth_user' => 'authentication#authenticate_user'
+
 
 
  
@@ -14,6 +17,21 @@ Rails.application.routes.draw do
         patch :change
       end
     end
+  end
+
+
+  namespace :api do 
+    namespace :v1 do 
+      post 'auth_user' => 'authentication#authenticate_user'
+      get 'home' => 'home#index'
+      resources :groups, only: [:index, :create, :show, :update, :destroy] do
+        resources :individuals, only: [:index, :create, :show, :update, :destroy] do
+          member do
+            patch :change
+          end
+        end
+      end
+    end 
   end
 
 

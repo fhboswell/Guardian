@@ -1,4 +1,5 @@
-class AuthenticationController < ApplicationController
+class Api::V1::AuthenticationController < ApplicationController
+
   def authenticate_user
     user = User.find_for_database_authentication(email: params[:email])
     if user.valid_password?(params[:password])
@@ -20,9 +21,16 @@ class AuthenticationController < ApplicationController
 
 
 
-attr_reader :current_user
-
   protected
+
+  def api_error(status: 500, errors: [])
+    unless Rails.env.production?
+      puts errors.full_messages if errors.respond_to? :full_messages
+    end
+    head status: status and return if errors.empty?
+
+    render json: jsonapi_format(errors).to_json, status: status
+  end
   def authenticate_request!
     unless user_id_in_token?
       render json: { errors: ['Not Authenticated'] }, status: :unauthorized
