@@ -1,4 +1,4 @@
- class Api::V1::GroupsController < Api::V1::AuthenticationController
+ class api::v1::GroupsController < api::v1::AuthenticationController
  	
 	def show
 		
