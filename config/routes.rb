@@ -22,8 +22,9 @@ Rails.application.routes.draw do
 
   namespace :api do 
     namespace :v1 do 
-      post 'auth_user' => 'authentication#authenticate_user'
       get 'home' => 'home#index'
+      post 'auth_user' => 'authentication#authenticate_user'
+     
       resources :groups, only: [:index, :create, :show, :update, :destroy] do
         resources :individuals, only: [:index, :create, :show, :update, :destroy] do
           member do
