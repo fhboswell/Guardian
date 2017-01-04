@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
  before_action :set_group, only: [:show, :edit, :update, :destroy]
  before_action :authenticate_user!
- before_filter :user_is_current_user, except: [:index, :create]
+ before_filter :user_is_current_user, except: [:index, :create, :new]
 
   # GET /groups
   # GET /groups.json
