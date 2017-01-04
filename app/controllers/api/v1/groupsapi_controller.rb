@@ -5,7 +5,7 @@ module Api
 	 	before_action :authenticate_request!
 		def show
 			
-	  	item = Group.find(params[:id])
+	  	item =  Group.where(user_id: current_user)
 		
 		render :json => item.to_json
 		end 
