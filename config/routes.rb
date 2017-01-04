@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
 
-
+post 'auth_user' => 'authentication#authenticate_user'
 
 
  
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get 'home' => 'home#index'
       post 'auth_user' => 'authentication#authenticate_user'
      
-      resources :groupsapi, only: [:index, :create, :show, :update, :destroy] do
+      resources :groupsapi do
         
       end
     end 

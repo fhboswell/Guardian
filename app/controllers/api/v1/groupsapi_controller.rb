@@ -1,10 +1,17 @@
+module Api
+  module V1
 
-  class GroupsapiController < AuthenticationController
- 	
-	def show
+	  class GroupsapiController < AuthenticationController
+	 	before_action :authenticate_request!
+		def show
+			
+	  	item = Group.find(params[:id])
 		
-  	item = Group.find(params[:id])
-	
-	render :json => item.to_json
-	end 
-  end
+		render :json => item.to_json
+		end 
+
+
+	  end
+	end
+end
+
