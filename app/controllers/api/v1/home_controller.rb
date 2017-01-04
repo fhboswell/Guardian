@@ -1,4 +1,4 @@
-class api::v1::HomeController < api::v1::AuthenticationController
+class HomeController < AuthenticationController
 	 
   def index
 

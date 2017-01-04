@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get 'home' => 'home#index'
       post 'auth_user' => 'authentication#authenticate_user'
      
-      resources :groups, only: [:index, :create, :show, :update, :destroy] do
+      resources :groupsapi, only: [:index, :create, :show, :update, :destroy] do
         
       end
     end 

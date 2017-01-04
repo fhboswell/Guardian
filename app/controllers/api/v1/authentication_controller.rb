@@ -1,4 +1,4 @@
-class api::v1::AuthenticationController < ApplicationController
+class AuthenticationController < ApplicationController
 
   def authenticate_user
     user = User.find_for_database_authentication(email: params[:email])

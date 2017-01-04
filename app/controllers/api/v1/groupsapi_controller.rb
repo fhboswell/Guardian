@@ -1,4 +1,5 @@
- class api::v1::GroupsController < api::v1::AuthenticationController
+
+  class GroupsapiController < AuthenticationController
  	
 	def show
 		
@@ -6,4 +7,4 @@
 	
 	render :json => item.to_json
 	end 
-end
+  end
