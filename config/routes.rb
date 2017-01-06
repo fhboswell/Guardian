@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
 
 
-post 'auth_user' => 'authentication#authenticate_user'
 
 
  
@@ -23,7 +22,11 @@ post 'auth_user' => 'authentication#authenticate_user'
       post 'auth_user' => 'authentication#authenticate_user'
      
       resources :groupsapi do
-        
+        resources :individualsapi do
+          member do
+            patch :change
+          end
+        end
       end
     end 
   end
