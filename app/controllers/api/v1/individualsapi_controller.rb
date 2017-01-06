@@ -3,8 +3,7 @@ module Api
 
 	  class IndividualsapiController < AuthenticationController
 	 	
-		before_action :set_group
-	    before_action :set_individual, except: [:create]
+		
 
 		def index
 
