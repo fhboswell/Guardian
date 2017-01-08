@@ -15,18 +15,24 @@ module Api
 
 	    def show
 			
-	  	  item =  Group.where(user_id: current_user)
+	  	  item =  Group.where(user_ id: current_user)
 		
 		  render :json => item.to_json
 		end 
 
 		def change
-
+		  @individual = Individual.find(params[:id])
 		  if @individual.check == "No"
 			@individual.update_attribute(:check, "Yes")
+			item = "Done"
+			render :json => item.to_json
 		  else
 			@individual.update_attribute(:check, "No")
+			item = "Done"
+			render :json => item.to_json
 		  end
+		  item = "error"
+		  render :json => item.to_json
 
 		end
 
