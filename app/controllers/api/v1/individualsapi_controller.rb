@@ -22,13 +22,14 @@ module Api
 
 		def change
 		  @individual = Individual.find(params[:id])
-		  item = "error"
+		  item = {:hello => "no"}
 		  if @individual.check == "No"
 			@individual.update_attribute(:check, "Yes")
-			item = "Done"
+			item = {:hello => "yes"}
+			
 		  else
 			@individual.update_attribute(:check, "No")
-			item = "Done"
+			item = {:hello => "yes"}
 		  end
 		  
 		  render :json => item.to_json
