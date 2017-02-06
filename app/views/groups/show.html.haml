@@ -1,0 +1,23 @@
+.wrapper_with_padding
+  %p#notice= notice
+  %p
+    %strong Title:
+    = @group.title
+    %strong Description:
+    = @group.description
+  #todo_items_wrapper
+    %table#customers
+      %tr
+        %th Name
+        %th Status
+        %th Delete Button
+        %th Change Status Button
+      = render @group.individuals
+  #form
+    = render "individuals/form"
+  = link_to 'Edit', edit_group_path(@group)
+  |
+  \#{link_to 'Back', groups_path}
+
+
+
