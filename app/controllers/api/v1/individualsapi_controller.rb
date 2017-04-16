@@ -2,7 +2,7 @@ module Api
   module V1
 
 	  class IndividualsapiController < AuthenticationController
-	 	
+	 	before_filter :authenticate_request!
 
 		def index
 
