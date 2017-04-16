@@ -24,8 +24,16 @@ module Api
 		  item = {:hello => "no"}
 		  if @individual.check == "No"
 			@individual.update_attribute(:check, "Yes")
+			ActionCable.server.broadcast 'room_channel',
+                                   content:  "Yes",
+                                   username: @individual.name,
+                                   id: @group.id
 		  else
 			@individual.update_attribute(:check, "No")
+			ActionCable.server.broadcast 'room_channel',
+                                   content:  "No",
+                                   username: @individual.name,
+                                   id: @group.id
 		  end
 		  render :json => item.to_json
 
