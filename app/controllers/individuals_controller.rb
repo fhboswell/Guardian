@@ -29,12 +29,14 @@ class IndividualsController < ApplicationController
 			@individual.update_attribute(:check, "Yes")
 			ActionCable.server.broadcast 'room_channel',
                                    content:  "Yes",
-                                   username: @individual.name
+                                   username: @individual.name,
+                                   id: @group.id
 		else
 			@individual.update_attribute(:check, "No")
 			ActionCable.server.broadcast 'room_channel',
                                    content:  "No",
-                                   username: @individual.name
+                                   username: @individual.name,
+                                   id: @group.id
 		end
 		redirect_to @group
 
