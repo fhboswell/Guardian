@@ -26,14 +26,12 @@ module Api
 			@individual.update_attribute(:check, "Yes")
 			ActionCable.server.broadcast 'room_channel',
                                    content:  "Yes",
-                                   username: @individual.name,
-                                   id: @group.id
+                                   username: @individual.name
 		  else
 			@individual.update_attribute(:check, "No")
 			ActionCable.server.broadcast 'room_channel',
                                    content:  "No",
-                                   username: @individual.name,
-                                   id: @group.id
+                                   username: @individual.name
 		  end
 		  render :json => item.to_json
 
