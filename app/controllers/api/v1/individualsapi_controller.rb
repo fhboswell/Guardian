@@ -3,6 +3,8 @@ module Api
 
 	  class IndividualsapiController < AuthenticationController
 	 	before_filter :authenticate_request!
+	 	before_action :set_group
+		before_action :set_individual, except: [:create]
 
 		def index
 
@@ -26,12 +28,14 @@ module Api
 			@individual.update_attribute(:check, "Yes")
 			ActionCable.server.broadcast 'room_channel',
                                    content:  "Yes",
-                                   username: @individual.name
+                                   username: @individual.name,
+                                   id: @group.id
 		  else
 			@individual.update_attribute(:check, "No")
 			ActionCable.server.broadcast 'room_channel',
                                    content:  "No",
-                                   username: @individual.name
+                                   username: @individual.name,
+                                   id: @group.id
 		  end
 		  render :json => item.to_json
 
