@@ -44,7 +44,7 @@ module Api
 	private
 
 		def set_group
-			@group = Group.find(params[:group_id])
+			@group = Group.find(params[:groupsapi_id])
 		end
 
 		def set_individual
