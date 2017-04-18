@@ -3,7 +3,7 @@
 	<td><%= individual.name %></td>
 	<td><%= individual.check %></td>
 	
-	<td><%= link_to "Delete", group_individual_path(@group, individual.id), method: :delete, data: { confirm: " Are you sure?"} %></td>
+	<td><%= link_to "Deletee", group_individual_path(@group, individual.id), method: :delete, data: { confirm: " Are you sure?"} %></td>
 
 	<td><%= link_to "Change Status", change_group_individual_path(@group, individual.id), method: :patch%></td>
 
