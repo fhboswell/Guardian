@@ -1,7 +1,7 @@
 # Guardian [![Build Status](https://travis-ci.org/fhboswell/Guardian.svg?branch=master)](https://travis-ci.org/fhboswell/Guardian)
 
 Implementation details:
-* Written is Ruby on Rails
+* Written in Ruby on Rails
 * Action Cable
 * Devise Auth
 * Exposed API (For the IOS app)
