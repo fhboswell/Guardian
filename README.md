@@ -6,6 +6,7 @@ Implementation details:
 * Devise Auth
 * Exposed API (For the IOS app)
 * Travis testing
+* Redis
 * Heroku PaaS 
 * Continuous Integration
 
