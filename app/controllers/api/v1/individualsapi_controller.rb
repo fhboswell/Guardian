@@ -4,6 +4,7 @@ module Api
 	  class IndividualsapiController < AuthenticationController
 	 	before_filter :authenticate_request!
 	 	before_action :set_group
+	 	
 		
 
 		def index
