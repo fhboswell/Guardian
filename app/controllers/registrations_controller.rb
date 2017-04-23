@@ -8,10 +8,10 @@ class RegistrationsController < Devise::RegistrationsController
       format.html {
         super
       }
-      format.json {
+       format.json {
         @user = User.create(user_params)
-        item = "test"
-        render :json => item.to_json
+        @user.save ? (render :json => {:state => {:code => 0}, :data => @user }) : 
+                     (render :json => {:state => {:code => 1, :messages => @user.errors.full_messages} })
       }
     end
   end
