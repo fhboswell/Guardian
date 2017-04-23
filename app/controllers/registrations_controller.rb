@@ -10,8 +10,8 @@ class RegistrationsController < Devise::RegistrationsController
       }
        format.json {
         @user = User.create(user_params)
-        @user.save ? (render :json => {:state => {:code => 0}, :data => @user }) : 
-                     (render :json => {:state => {:code => 1, :messages => @user.errors.full_messages} })
+        @user.save ? (render json: {:data => @user }, status: :created) : 
+                     (render json: {:data => @user.errors.full_messages }, status: :conflict)
       }
     end
   end
