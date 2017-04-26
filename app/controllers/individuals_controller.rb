@@ -57,6 +57,6 @@ class IndividualsController < ApplicationController
 	end
 
 	def individual_params
-		params[:individual].permit(:name).merge(check: "No")
+		params[:individual].permit(:name, :email).merge(check: "No")
 	end
 end
