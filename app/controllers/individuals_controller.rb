@@ -6,7 +6,7 @@ class IndividualsController < ApplicationController
 	def create
 		
 		@individual = @group.individuals.create(individual_params)
-		@user = User.new(new_us_params)
+		@user = User.create(new_us_params)
         @user.save
 
 		redirect_to @group
