@@ -1,7 +1,7 @@
 class IndividualsController < ApplicationController
 
 	before_action :set_group
-	before_action :set_individual, except: [:create]
+	before_action :set_individual, except: [:create, :new]
 
 	def create
 		

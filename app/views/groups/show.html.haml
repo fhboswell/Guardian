@@ -14,10 +14,12 @@
         %th Change Status Button
       = render @group.individuals
   #form
-    = render "individuals/form"
+  
   = link_to 'Edit', edit_group_path(@group)
   |
   \#{link_to 'Back', groups_path}
+  |
+  = link_to 'Edit', new_group_individual_path(@group)
 
 
 
