@@ -6,7 +6,8 @@ class IndividualsController < ApplicationController
 	def create
 		
 		@individual = @group.individuals.create(individual_params)
-		
+		@user = User.new(new_us_params)
+        @user.save
 
 		redirect_to @group
 	end
@@ -57,5 +58,8 @@ class IndividualsController < ApplicationController
 
 	def individual_params
 		params[:individual].permit(:name, :email).merge(check: "No")
+	end
+	def new_us_params
+		params[:individual].permit(:email).merge(password: "lollol")
 	end
 end
