@@ -6,8 +6,7 @@ class IndividualsController < ApplicationController
 	def create
 		
 		@individual = @group.individuals.create(individual_params)
-		@user = User.new(:email => '1@example.com', :password => 'password', :type_key => '1')
-        @user.save
+		
 
 		redirect_to @group
 	end
