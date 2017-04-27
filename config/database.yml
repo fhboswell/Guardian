@@ -20,7 +20,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: store_test
+  database: store_production
   pool: 5
   username: 
   password:
