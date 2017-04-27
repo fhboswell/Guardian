@@ -14,7 +14,7 @@ test:
   encoding: unicode
   database: store_test
   pool: 5
-  username: henryboswell
+  username: 
   password:
 
 production:
