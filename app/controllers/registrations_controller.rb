@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+
+
   def create
 
 
@@ -10,11 +12,16 @@ class RegistrationsController < Devise::RegistrationsController
       }
        format.json {
         @user = User.create(user_params)
+        #UserNotifierMailer.send_signup_email(@user).deliver
+        @user.send_reset_password_instructions
         @user.save ? (render json: {:data => @user }, status: :created) : 
                      (render json: {:data => @user.errors.full_messages }, status: :conflict)
       }
     end
+
   end
+
+  
 
 private
 
