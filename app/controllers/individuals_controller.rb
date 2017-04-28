@@ -9,7 +9,7 @@ class IndividualsController < ApplicationController
 		@user = User.create(new_user_params)
         @user.save
         @user.send_reset_password_instructions
-        data = { 'photoid' => 123, 'photoname' => "asdasd", 'creator_id' => "asdasd" }
+        data = { 'groupid' => @group.id, 'individualid' => @individual.id}
         @user.individualid = data.to_json
         @user.save
 
@@ -65,6 +65,7 @@ class IndividualsController < ApplicationController
 		params[:individual].permit(:name, :email).merge(check: "No")
 	end
 	def new_user_params
-		params[:individual].permit(:email).merge(password: "lollol")
+		params[:individual].permit(:email).merge(password: "lollol", type_key: "Guardian")
+
 	end
 end

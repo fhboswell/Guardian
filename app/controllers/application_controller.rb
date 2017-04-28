@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: update_attrs
   end
 
+  def after_sign_in_path_for(resource)
+  # Here you can write logic based on roles to return different after sign in paths
+	  if current_user.type_key == "Admin"
+	    puts "lol"
+	    authenticated_root_path
+	  end
+  end
   
 
 end
