@@ -22,6 +22,17 @@ module Api
 		  render :json => item.to_json
 		end 
 
+		def create
+		
+			@individual = @group.individuals.create(individual_params)
+			@user = User.create(new_user_params)
+	        @user.save
+	        @user.send_reset_password_instructions
+	        data = { 'groupid' => @group.id, 'individualid' => @individual.id}
+	        @user.individualid = data.to_json
+	        @user.save
+    	end
+
 		def change
 		  @individual = Individual.find(params[:id])
 		  item = {:hello => "no"}
@@ -53,8 +64,12 @@ module Api
 		end
 
 		def individual_params
-			params[:individual].permit(:name).merge(check: "No")
+			params.require(:individual).permit(:name).merge(check: "No")
 		end
+		def new_user_params
+			params.require(:individual).permit(:email).merge(password: "lollol", type_key: "Guardian")
+
+	end
 
 
 	  end
