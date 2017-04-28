@@ -30,6 +30,7 @@ module Api
 	        @user.send_reset_password_instructions
 	        data = { 'groupid' => @group.id, 'individualid' => @individual.id}
 	        @user.individualid = data.to_json
+	        puts data
 	        @user.save
     	end
 
@@ -49,7 +50,7 @@ module Api
                                    username: @individual.name,
                                    id: @group.id
 		  end
-		  
+
 		  render :json => item.to_json
 
 		end

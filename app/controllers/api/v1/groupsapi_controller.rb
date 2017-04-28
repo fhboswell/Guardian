@@ -10,6 +10,16 @@ module Api
 		
 			render :json => item.to_json
 		end 
+		def create
+    		@group = current_user.groups.build(group_params)
+    		@group.save
+    		puts "here"
+    	end
+
+    	private
+	  		def group_params
+    			params.require(:group).permit(:title, :description)
+  			end
 
 
 
