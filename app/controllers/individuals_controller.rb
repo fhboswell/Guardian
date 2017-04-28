@@ -6,8 +6,13 @@ class IndividualsController < ApplicationController
 	def create
 		
 		@individual = @group.individuals.create(individual_params)
-		@user = User.create(new_us_params)
+		@user = User.create(new_user_params)
         @user.save
+        @user.send_reset_password_instructions
+        data = { 'photoid' => 123, 'photoname' => "asdasd", 'creator_id' => "asdasd" }
+        @user.individualid = data.to_json
+        @user.save
+
 
 		redirect_to @group
 	end
@@ -59,7 +64,7 @@ class IndividualsController < ApplicationController
 	def individual_params
 		params[:individual].permit(:name, :email).merge(check: "No")
 	end
-	def new_us_params
+	def new_user_params
 		params[:individual].permit(:email).merge(password: "lollol")
 	end
 end
