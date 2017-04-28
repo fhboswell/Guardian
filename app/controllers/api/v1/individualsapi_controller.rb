@@ -49,6 +49,7 @@ module Api
                                    username: @individual.name,
                                    id: @group.id
 		  end
+		  
 		  render :json => item.to_json
 
 		end
@@ -64,7 +65,7 @@ module Api
 		end
 
 		def individual_params
-			params.require(:individual).permit(:name).merge(check: "No")
+			params.require(:individual) .permit(:name).merge(check: "No")
 		end
 		def new_user_params
 			params.require(:individual).permit(:email).merge(password: "lollol", type_key: "Guardian")
