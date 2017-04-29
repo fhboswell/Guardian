@@ -5,10 +5,6 @@
 # below each fixture, per the syntax in the comments below
 #
 
-one:
-  email: alice@example.com
-  encrypted_password: lollol
-
-two:
-  email: bob@example.com
-  encrypted_password: lollol
+example:
+  email: example@lakejoe.com
+  encrypted_password: password
