@@ -1,0 +1,20 @@
+<div class="wrapper_with_padding">
+  <p id="notice">
+    <%= notice %>
+  </p>
+  <p>
+    <strong>Title:</strong>
+    <%= Guardian %>
+  </p>
+  <div id="todo_items_wrapper">
+    <table id="customers">
+      <tr>
+        <th>Named</th>
+        <th>Status</th>
+        <th>Delete Button</th>
+        <th>Change Status Button</th>
+      </tr>
+      <%= render @objArray %>
+    </table>
+  </div>
+</div>

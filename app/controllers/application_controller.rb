@@ -15,9 +15,13 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
   # Here you can write logic based on roles to return different after sign in paths
 	  if current_user.type_key == "Admin"
-	    puts "lol"
+	    puts "Admin"
 	    authenticated_root_path
+	  elsif current_user.type_key == "Guardian"
+	    puts "Guardian"
+	    dashboard_index_path
 	  end
+
   end
   
 
