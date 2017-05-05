@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   
   
   before_action :authenticate_user!
-  before_action :set_s3_direct_post, only: [:index, :new, :edit, :create, :update]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
   before_action :set_user
 
   def index
