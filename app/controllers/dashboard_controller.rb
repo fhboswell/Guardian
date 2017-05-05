@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
   
   before_action :authenticate_user!
   before_action :set_s3_direct_post, only: [:index, :new, :edit, :create, :update]
+  before_action :set_user
 
   def index
     @objArray = Array.new
@@ -35,6 +36,12 @@ class DashboardController < ApplicationController
   end
    def set_s3_direct_post
     @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+  end
+  def set_user
+    @user = current_user
+    puts "made it this far"
+    puts @user
+    puts current_user.id
   end
 
 end
