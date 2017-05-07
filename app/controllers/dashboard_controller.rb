@@ -8,21 +8,11 @@ class DashboardController < ApplicationController
   def index
     @objArray = Array.new
   	@user = User.where(id: current_user)
-  	puts current_user.individualid
-  
   	s = current_user.individualid[0]
-	  puts s.split(":")
-
-	
     @object = JSON.parse(s)
-    puts @object
     set_group
     set_individual
-    puts @group
-    @individual
-
     @objArray << @individual
-    puts @objArray
 
   	
   end
@@ -38,11 +28,8 @@ class DashboardController < ApplicationController
   end
   def set_user
     @user = current_user
-    puts "made it this far"
-    puts @user
-    puts current_user.id
     @surl = @user.selfieurl
-    
+
   end
 
 end

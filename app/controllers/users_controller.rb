@@ -23,6 +23,5 @@ end
  end
  def set_user
      @user = User.find(params[:id])
-     puts @user
  end
 end

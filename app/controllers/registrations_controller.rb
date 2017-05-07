@@ -1,11 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
-
-
   def create
-
-
-
     respond_to do |format|
       format.html {
         super
@@ -18,10 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
                      (render json: {:data => @user.errors.full_messages }, status: :conflict)
       }
     end
-
   end
-
-  
 
 private
 
