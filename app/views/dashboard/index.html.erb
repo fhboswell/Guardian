@@ -4,15 +4,18 @@
   </p>
   <p>
     <strong>Title:</strong>
-    <%= Guardian %>
+    Guardian
+
+    
+    <div class="landscape">
+      <img src="<%= current_user.selfieurl %>"/>
+    </div>
   </p>
   <div id="todo_items_wrapper">
     <table id="customers">
       <tr>
         <th>Named</th>
         <th>Status</th>
-        <th>Delete Button</th>
-        <th>Change Status Button</th>
       </tr>
       <%= render @objArray %>
     </table>

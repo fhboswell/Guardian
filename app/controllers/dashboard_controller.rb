@@ -1,8 +1,6 @@
 require 'json'
 class DashboardController < ApplicationController
 
-  
-  
   before_action :authenticate_user!
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
   before_action :set_user
@@ -22,9 +20,10 @@ class DashboardController < ApplicationController
     set_individual
     puts @group
     @individual
-  	puts "khjsdadfshkahksdfh"
+
     @objArray << @individual
     puts @objArray
+
   	
   end
   def set_group
@@ -42,6 +41,8 @@ class DashboardController < ApplicationController
     puts "made it this far"
     puts @user
     puts current_user.id
+    @surl = @user.selfieurl
+    
   end
 
 end

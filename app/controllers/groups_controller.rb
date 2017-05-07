@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.where(user_id: current_user)
+    
   end
 
   # GET /groups/1
