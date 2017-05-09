@@ -71,8 +71,8 @@ module Api
 			params.require(:individual) .permit(:name).merge(check: "No")
 		end
 		def new_user_params
-			params.require(:individual).permit(:email).merge(password: "lollol", type_key: "Guardian")
-
+			uuid = SecureRandom.uuid
+			params[:individual].permit(:email).merge(password: "lollol", type_key: "Guardian", uuid: uuid)
 	end
 
 

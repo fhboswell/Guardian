@@ -65,7 +65,8 @@ class IndividualsController < ApplicationController
 		params[:individual].permit(:name, :email).merge(check: "No")
 	end
 	def new_user_params
-		params[:individual].permit(:email).merge(password: "lollol", type_key: "Guardian")
+		uuid = SecureRandom.uuid
+		params[:individual].permit(:email).merge(password: "lollol", type_key: "Guardian", uuid: uuid)
 
 	end
 end
