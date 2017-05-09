@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     namespace :v1 do 
       get 'home' => 'home#index'
       post 'auth_user' => 'authentication#authenticate_user'
+      get 'dashboadapi' => 'dashboardapi#index'
+      patch 'dashboadapi' => 'dashboardapi#pictureurl'
      
       resources :groupsapi do
         resources :individualsapi do
