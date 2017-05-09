@@ -29,9 +29,11 @@ module Api
 	        @user.save
 	        @user.send_reset_password_instructions
 	        data = { 'groupid' => @group.id, 'individualid' => @individual.id}
-	        @user.individualid = data.to_json
+	        @user.individualid = [data.to_json]
 	        puts data
 	        @user.save
+
+	       
     	end
 
 		def change
