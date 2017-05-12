@@ -30,7 +30,9 @@ Rails.application.routes.draw do
       get 'home' => 'home#index'
       post 'auth_user' => 'authentication#authenticate_user'
       get 'dashboardapi' => 'dashboardapi#index'
-      patch 'dashboadapi' => 'dashboardapi#pictureurl'
+     
+
+      post 'fileurl', to: :fileurl, controller: 'dashboardapi'
      
       resources :groupsapi do
         resources :individualsapi do

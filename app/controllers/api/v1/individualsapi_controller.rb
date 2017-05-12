@@ -68,7 +68,7 @@ module Api
 		end
 
 		def individual_params
-			params.require(:individual) .permit(:name, :email).merge(check: "No")
+			params.require(:individual).permit(:name, :email).merge(check: "No")
 			
 		end
 		def new_user_params
