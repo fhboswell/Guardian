@@ -16,6 +16,7 @@ module Api
       	set_group
       	set_individual
       	@objArray << @individual
+        @objArray << @group
   		  render :json => @objArray.to_json
 
 
