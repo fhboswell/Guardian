@@ -33,6 +33,7 @@ Rails.application.routes.draw do
      
 
       post 'fileurl', to: :fileurl, controller: 'dashboardapi'
+      post 'actionReq', to: :actionReq, controller: 'dashboardapi'
      
       resources :groupsapi do
         resources :individualsapi do

@@ -27,13 +27,27 @@ module Api
 
         respond_to do |format|
       
-       format.json {
-        puts "in method"
+          format.json {
+            puts "in method"
 
-        current_user.update_attribute(:selfieurl, params[:fileurl])
-        puts params[:fileurl]
-      }
-    end
+            current_user.update_attribute(:selfieurl, params[:fileurl])
+            puts params[:fileurl]
+          }
+        end
+
+      end
+      def actionReq
+
+        respond_to do |format|
+      
+          format.json {
+            puts "in method"
+
+            current_user.update_attributes(set_actionReq)
+            
+            puts params[:set_actionReq]
+          }
+        end
 
       end
 
@@ -48,13 +62,12 @@ module Api
       	@individual = @group.individuals.find(@object["individualid"])
       end
 
-      def set_fileurl
+      def set_actionReq
        
-          params.require(:user).permit(:fileurl)
-          
-          puts params[:fileurl]
+          params.require(:user).permit(:actionreq, :name, :title)
         
       end
+      
 
 	  
 	  end

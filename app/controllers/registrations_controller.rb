@@ -17,8 +17,9 @@ class RegistrationsController < Devise::RegistrationsController
 private
 
     def user_params
-      
-      params.require(:user).permit(:email, :password, :type_key)
+      uuid = SecureRandom.uuid
+     
+      params.require(:user).permit(:email, :password, :type_key).merge(uuid: uuid, actionreq: "yes")
 
     end
   end 
